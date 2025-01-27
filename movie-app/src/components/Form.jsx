@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Form() {
+export function Form({ onReviewSubmit }) {
   const [inputValue, setInputValue] = useState("");
   const [textareaValue, setTextareaValue] = useState("");
 
@@ -10,9 +10,11 @@ export function Form() {
     const author = inputValue;
     const text = textareaValue;
 
-    setReviews((prevReviews) => {
-      return [{ author, text, id: prevReviews.length + 1 }, ...prevReviews];
-    });
+    // setReviews((prevReviews) => {
+    //   return [{ author, text, id: prevReviews.length + 1 }, ...prevReviews];
+    // });
+
+    onReviewSubmit();
 
     setInputValue("");
     setTextareaValue("");

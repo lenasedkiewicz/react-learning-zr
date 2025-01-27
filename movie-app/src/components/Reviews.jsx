@@ -1,13 +1,6 @@
 import { Review } from "./Review";
-import { useState } from "react";
 
-const initialReviews = [
-  { author: "Brian", text: "Najlepszy film ever!", id: 1 },
-  { author: "Jessica", text: "Nie podobał mi się", id: 2 },
-];
-export function Reviews() {
-  const [reviews, setReviews] = useState(initialReviews);
-
+export function Reviews({ reviews }) {
   const reviewsElement = reviews.map((r) => (
     <Review key={r.id} author={r.author} text={r.text} />
   ));
