@@ -20,8 +20,13 @@ function App() {
       <Plot />
       <Reviews reviews={reviews} />
       <Form
-        onReviewSubmit={() => {
-          alert("");
+        onReviewSubmit={(author, text) => {
+          setReviews((prevReviews) => {
+            return [
+              { author, text, id: prevReviews.length + 1 },
+              ...prevReviews,
+            ];
+          });
         }}
       />
     </>
