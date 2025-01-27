@@ -11,12 +11,20 @@ const initialReviews = [
 
 function App() {
   const [reviews, setReviews] = useState(initialReviews);
+  const [counterShown, setCounterShown] = useState(true);
 
   return (
     <>
       <h1>Gwiezdne wojny V</h1>
       <h2>Rok produkcji: 1980</h2>
-      <LikesCounter />
+      <button
+        onClick={() => {
+          setCounterShown((prevCounterShown) => !prevCounterShown);
+        }}
+      >
+        {counterShown ? "Schowaj licznik" : "Pokaż licznik"}
+      </button>
+      {counterShown && <LikesCounter />}
       <Plot />
       <Reviews reviews={reviews} />
       <Form
