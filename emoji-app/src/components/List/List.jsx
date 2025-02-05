@@ -1,11 +1,11 @@
 import { Item } from "../Item/Item";
-import "./List.css";
+import styles from "./List.module.css";
 
 const emojis = ["🚀", "🎶", "🎁", "🎉", "✨"];
 
 export function List() {
   return (
-    <ul className="list">
+    <ul className={styles.list}>
       {emojis.map((emoji) => (
         <Item key={emoji} emoji={emoji} />
       ))}
