@@ -17,7 +17,7 @@ export function List() {
     <>
       <StyledButton
         $margin={30}
-        $primary={true}
+        $primary
         onClick={() => alert(`Liczba emoji: ${emojis.length}`)}
       >
         Pokaż liczbę emoji!
