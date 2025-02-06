@@ -8,6 +8,13 @@ const StyledItem = styled.li`
   border-radius: 20px;
   text-align: center;
   overflow: hidden;
+
+  span {
+    display: block;
+    margin-bottom: 42px;
+    font-size: 32px;
+    transition: transform 0.3s;
+  }
 `;
 
 export function Item({ emoji }) {
