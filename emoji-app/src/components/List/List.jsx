@@ -1,24 +1,8 @@
 import { Item } from "../Item/Item";
 import styled from "styled-components";
+import { StyledButton } from "../styles/StyledButton";
 
 const emojis = ["🚀", "🎶", "🎁", "🎉", "✨"];
-
-const StyledButton = styled.button`
-  background: transparent;
-  border: solid 1px;
-  padding: 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100px;
-  color: salmon;
-  transition: background 0.3s;
-  margin: 30px;
-
-  &:hover {
-    color: white;
-    background: salmon;
-  }
-`;
 
 const StyledList = styled.ul`
   display: flex;
@@ -31,7 +15,11 @@ const StyledList = styled.ul`
 export function List() {
   return (
     <>
-      <StyledButton onClick={() => alert(`Liczba emoji: ${emojis.length}`)}>
+      <StyledButton
+        $margin={30}
+        $primary={true}
+        onClick={() => alert(`Liczba emoji: ${emojis.length}`)}
+      >
         Pokaż liczbę emoji!
       </StyledButton>
       <StyledList>

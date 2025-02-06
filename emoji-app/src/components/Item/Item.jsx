@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { StyledButton } from "../styles/StyledButton";
 
 const StyledItem = styled.li`
   background: salmon;
@@ -15,22 +16,6 @@ const StyledEmoji = styled.span`
   font-size: 32px;
   transition: transform 0.3s;
   ${({ $zoomed }) => $zoomed && "transform: scale(2)"};
-`;
-
-const StyledButton = styled.button`
-  background: transparent;
-  border: solid 1px;
-  padding: 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100px;
-  color: white;
-  transition: background 0.3s, color 0.3s;
-
-  &:hover {
-    color: salmon;
-    background: white;
-  }
 `;
 
 export function Item({ emoji }) {
