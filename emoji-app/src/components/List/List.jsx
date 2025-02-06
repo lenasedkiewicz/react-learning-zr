@@ -27,12 +27,6 @@ export function List() {
       <StyledButton onClick={() => alert(`Liczba emoji: ${emojis.length}`)}>
         Pokaż liczbę emoji!
       </StyledButton>
-      <button
-        className={styles.btn}
-        onClick={() => alert(`Liczba emoji: ${emojis.length}`)}
-      >
-        Pokaż liczbę emoji!
-      </button>
       <ul className={styles.list}>
         {emojis.map((emoji) => (
           <Item key={emoji} emoji={emoji} />
