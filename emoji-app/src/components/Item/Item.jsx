@@ -8,12 +8,28 @@ const StyledItem = styled.li`
   border-radius: 20px;
   text-align: center;
   overflow: hidden;
+`;
 
-  span {
-    display: block;
-    margin-bottom: 42px;
-    font-size: 32px;
-    transition: transform 0.3s;
+const StyledEmoji = styled.span`
+  display: block;
+  margin-bottom: 42px;
+  font-size: 32px;
+  transition: transform 0.3s;
+`;
+
+const StyledButton = styled.button`
+  background: transparent;
+  border: solid 1px;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  color: white;
+  transition: background 0.3s, color 0.3s;
+
+  &:hover {
+    color: salmon;
+    background: white;
   }
 `;
 
@@ -22,17 +38,16 @@ export function Item({ emoji }) {
 
   return (
     <StyledItem>
-      <span className={`${styles.emoji} ${zoomed ? styles.zoomed : ""}`}>
+      <StyledEmoji className={`${styles.emoji} ${zoomed ? styles.zoomed : ""}`}>
         {emoji}
-      </span>
-      <button
-        className={styles.btn}
+      </StyledEmoji>
+      <StyledButton
         onClick={() => {
           setZoomed((wasZoomed) => !wasZoomed);
         }}
       >
         {zoomed ? "Oddal" : "Przybliż"}
-      </button>
+      </StyledButton>
     </StyledItem>
   );
 }
