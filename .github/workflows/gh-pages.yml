@@ -32,6 +32,11 @@ jobs:
           cd todo-app
           npm run build  # Ensure this script generates output in `dist` or `build`
 
+      - name: Configure Git User
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Deploy to GitHub Pages
         run: |
           cd todo-app
