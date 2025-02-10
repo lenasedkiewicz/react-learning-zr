@@ -12,7 +12,7 @@ const StyledList = styled.ul`
   padding: 30px;
 `;
 
-const StyledItem = styled(Item)`
+const StyledListItem = styled(Item)`
   margin-bottom: 50px;
 `;
 
@@ -28,7 +28,7 @@ export function List() {
       </StyledButton>
       <StyledList>
         {emojis.map((emoji) => (
-          <StyledItem key={emoji} emoji={emoji} />
+          <StyledListItem key={emoji} emoji={emoji} />
         ))}
       </StyledList>
     </>
