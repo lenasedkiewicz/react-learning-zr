@@ -1,11 +1,17 @@
 import { Button } from "../Button/Button";
 import styles from "./Form.module.css";
 
-export function Form() {
+export function Form({ onFormSubmit }) {
   return (
-    <form className={styles.form}>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        onFormSubmit();
+      }}
+      className={styles.form}
+    >
       <input className={styles.input} type="text" />
-      <Button onClick={() => alert("I'm working!")}>Dodaj</Button>
+      <Button>Dodaj</Button>
     </form>
   );
 }
