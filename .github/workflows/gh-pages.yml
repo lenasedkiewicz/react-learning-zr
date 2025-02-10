@@ -3,10 +3,10 @@ name: Deploy Todo App to GitHub Pages
 on:
   push:
     branches:
-      - main # Change if your default branch is different
+      - main
 
 permissions:
-  contents: write # Allows pushing to gh-pages
+  contents: write
 
 jobs:
   deploy:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: false # We will use our own token
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -46,10 +46,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd todo-app
-          git fetch origin gh-pages || git checkout --orphan gh-pages
-          git rm -rf .
-          cp -r dist/* .
-          touch .nojekyll
-          git add .
+          git init
+          git checkout -b gh-pages
+          git add -f dist
           git commit -m "Deploy to GitHub Pages"
-          git push --force origin gh-pages
+          git push -f https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git gh-pages:gh-pages
