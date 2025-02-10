@@ -11,7 +11,7 @@ export function List() {
       >
         Pokaż liczbę emoji!
       </button>
-      <ul className="flex flex-col gap-[30px]">
+      <ul className="flex flex-col gap-30 p-8">
         {emojis.map((emoji) => (
           <Item key={emoji} emoji={emoji} />
         ))}
