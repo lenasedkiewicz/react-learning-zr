@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "tailwindcss";
 
 // const StyledItem = styled.li`
 //   background: salmon;

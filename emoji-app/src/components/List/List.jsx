@@ -1,5 +1,4 @@
 import { Item } from "../Item/Item";
-import "tailwindcss";
 
 const emojis = ["🚀", "🎶", "🎁", "🎉", "✨"];
 
