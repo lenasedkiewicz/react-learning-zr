@@ -1,19 +1,7 @@
 import styles from "./App.module.css";
 import { Form } from "./components/Form/Form";
 import { ToDoItem } from "./components/ToDoItem/ToDoItem";
-
-function getSubheading(numberOfTasks) {
-  switch (true) {
-    case numberOfTasks > 4:
-      return `${numberOfTasks} zadań`;
-    case numberOfTasks > 1:
-      return `${numberOfTasks} zadania`;
-    case numberOfTasks === 1:
-      return `${numberOfTasks} zadanie`;
-    default:
-      return `brak zadań`;
-  }
-}
+import { getSubheading } from "./utils/getSubheading";
 
 function App() {
   const todos = [
