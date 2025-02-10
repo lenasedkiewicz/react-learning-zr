@@ -5,7 +5,7 @@ export function Form() {
   return (
     <form className={styles.form}>
       <input className={styles.input} type="text" />
-      <Button></Button>
+      <Button onClick={() => alert("I'm working!")}>Dodaj</Button>
     </form>
   );
 }
