@@ -29,8 +29,8 @@ function App() {
       </header>
       {isFormShown && (
         <Form
-          onFormSubmit={() => {
-            alert("sent!");
+          onFormSubmit={(newTodoName) => {
+            alert(newTodoName);
           }}
         />
       )}
