@@ -2,7 +2,7 @@
   "name": "todo-app",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://lenasedkiewicz.github.io/react-learning-zr/todo-app/",
+  "homepage": "https://lenasedkiewicz.github.io/react-learning-zr/",
   "type": "module",
   "scripts": {
     "dev": "vite",
