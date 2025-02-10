@@ -27,6 +27,17 @@ function App() {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   }
 
+  function finishItem(id) {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
+        if (todo.id !== id) {
+          return todo;
+        }
+        return { ...todo, done: true };
+      })
+    );
+  }
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -53,16 +64,7 @@ function App() {
             name={name}
             done={done}
             onDeleteButtonClick={() => deleteItem(id)}
-            onDoneButtonClick={() => {
-              setTodos((prevTodos) =>
-                prevTodos.map((todo) => {
-                  if (todo.id !== id) {
-                    return todo;
-                  }
-                  return { ...todo, done: true };
-                })
-              );
-            }}
+            onDoneButtonClick={() => finishItem(id)}
           />
         ))}
       </ul>
