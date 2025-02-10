@@ -22,6 +22,11 @@ function App() {
     ]);
     setIsFormShown(false);
   }
+
+  function deleteItem(id) {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  }
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -47,11 +52,7 @@ function App() {
             key={id}
             name={name}
             done={done}
-            onDeleteButtonClick={() => {
-              setTodos((prevTodos) =>
-                prevTodos.filter((todo) => todo.id !== id)
-              );
-            }}
+            onDeleteButtonClick={() => deleteItem(id)}
             onDoneButtonClick={() => {
               setTodos((prevTodos) =>
                 prevTodos.map((todo) => {
