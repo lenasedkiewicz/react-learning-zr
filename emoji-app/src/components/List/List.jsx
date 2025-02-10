@@ -6,7 +6,7 @@ export function List() {
   return (
     <>
       <button
-        className="bg-transparent border-1 border-current p-3 rounded-sm cursor-pointer w-40 text-salmon transition-colors m-8 hover:text-white hover:bg-salmon"
+        className="text-salmon hover:bg-salmon m-8 w-40 cursor-pointer rounded-sm border-1 border-current bg-transparent p-3 transition-colors hover:text-white"
         onClick={() => alert(`Liczba emoji: ${emojis.length}`)}
       >
         Pokaż liczbę emoji!
