@@ -34,8 +34,7 @@ jobs:
 
       - name: List Build Files (Debugging)
         run: |
-          cd todo-app
-          ls -R
+          ls -R todo-app/dist
 
       - name: Configure Git User
         run: |
@@ -47,5 +46,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd todo-app
-          git remote set-url origin git remote set-url origin https://github.com/${{ github.repository }}.git
-          npm run deploy
+          git fetch origin gh-pages || git checkout --orphan gh-pages
+          git rm -rf .
+          cp -r dist/* .
+          touch .nojekyll
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push --force origin gh-pages
