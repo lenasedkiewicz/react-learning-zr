@@ -1,11 +1,15 @@
 import { Item } from "../Item/Item";
+import "tailwindcss";
 
 const emojis = ["🚀", "🎶", "🎁", "🎉", "✨"];
 
 export function List() {
   return (
     <>
-      <button onClick={() => alert(`Liczba emoji: ${emojis.length}`)}>
+      <button
+        className="text-3xl"
+        onClick={() => alert(`Liczba emoji: ${emojis.length}`)}
+      >
         Pokaż liczbę emoji!
       </button>
       <ul>

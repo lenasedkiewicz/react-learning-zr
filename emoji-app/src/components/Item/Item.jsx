@@ -1,6 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
-import { StyledButton } from "../styles/StyledButton";
+import "tailwindcss";
 
 // const StyledItem = styled.li`
 //   background: salmon;
@@ -18,12 +17,12 @@ import { StyledButton } from "../styles/StyledButton";
 //   ${({ $zoomed }) => $zoomed && "transform: scale(2)"};
 // `;
 
-export function Item({ emoji, className }) {
+export function Item({ emoji }) {
   const [zoomed, setZoomed] = useState(false);
 
   return (
     <li>
-      <span $zoomed={zoomed}>{emoji}</span>
+      <span>{emoji}</span>
       <button
         onClick={() => {
           setZoomed((wasZoomed) => !wasZoomed);
