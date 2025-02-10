@@ -6,10 +6,10 @@ import { getSubheading } from "./utils/getSubheading";
 
 function App() {
   const [isFormShown, setIsFormShown] = useState(false);
-  const todos = [
+  const [todos, setTodos] = useState([
     { name: "Nauka Pythona", done: false, id: 1 },
     { name: "Wyzwanie AI", done: true, id: 2 },
-  ];
+  ]);
 
   return (
     <div className={styles.container}>
@@ -30,7 +30,11 @@ function App() {
       {isFormShown && (
         <Form
           onFormSubmit={(newTodoName) => {
-            alert(newTodoName);
+            setTodos((prevTodos) => [
+              ...prevTodos,
+              { name: newTodoName, done: false, id: prevTodos.length + 1 },
+            ]);
+            setIsFormShown(false);
           }}
         />
       )}
