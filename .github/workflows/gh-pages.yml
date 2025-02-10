@@ -1,0 +1,33 @@
+name: Deploy Folder1 to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Change this if needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: |
+          cd todo-app
+          npm install
+
+      - name: Build Project
+        run: |
+          cd todo-app
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        run: |
+          cd todo-app
+          npm run deploy
