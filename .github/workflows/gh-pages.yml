@@ -6,9 +6,7 @@ on:
       - main # Change if your default branch is different
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write # Allows pushing to gh-pages
 
 jobs:
   deploy:
@@ -16,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false # We will use our own token
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,7 +30,7 @@ jobs:
       - name: Build the Project
         run: |
           cd todo-app
-          npm run build  # Ensure this script generates output in `dist` or `build`
+          npm run build
 
       - name: Configure Git User
         run: |
@@ -38,6 +38,9 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd todo-app
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
           npm run deploy
