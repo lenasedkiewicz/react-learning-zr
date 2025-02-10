@@ -11,6 +11,17 @@ function App() {
     { name: "Wyzwanie AI", done: true, id: 2 },
   ]);
 
+  function addItem(newTodoName) {
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      {
+        name: newTodoName,
+        done: false,
+        id: prevTodos.length > 0 ? prevTodos.at(-1).id + 1 : 0,
+      },
+    ]);
+    setIsFormShown(false);
+  }
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -28,19 +39,7 @@ function App() {
         )}
       </header>
       {isFormShown && (
-        <Form
-          onFormSubmit={(newTodoName) => {
-            setTodos((prevTodos) => [
-              ...prevTodos,
-              {
-                name: newTodoName,
-                done: false,
-                id: prevTodos.length > 0 ? prevTodos.at(-1).id + 1 : 0,
-              },
-            ]);
-            setIsFormShown(false);
-          }}
-        />
+        <Form onFormSubmit={(newTodoName) => addItem(newTodoName)} />
       )}
       <ul>
         {todos.map(({ id, name, done }) => (
