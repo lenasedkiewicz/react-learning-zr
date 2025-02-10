@@ -43,5 +43,5 @@ jobs:
         run: |
           cd todo-app
           npm run build
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/lenasedkiewicz/react-learning-zr.git
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
           gh-pages -d build -b gh-pages --add --message "Deploy to GitHub Pages" --dotfiles
