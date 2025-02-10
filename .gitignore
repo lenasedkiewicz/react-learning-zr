@@ -9,8 +9,7 @@ lerna-debug.log*
 node_modules
 emoji-app/node_modules
 movie-app/node_modules
-dist
-dist-ssr
+
 *.local
 
 # Editor directories and files
