@@ -49,6 +49,16 @@ function App() {
                 prevTodos.filter((todo) => todo.id !== id)
               );
             }}
+            onDoneButtonClick={() => {
+              setTodos((prevTodos) =>
+                prevTodos.map((todo) => {
+                  if (todo.id !== id) {
+                    return todo;
+                  }
+                  return { ...todo, done: true };
+                })
+              );
+            }}
           />
         ))}
       </ul>
