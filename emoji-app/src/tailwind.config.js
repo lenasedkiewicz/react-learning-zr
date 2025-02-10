@@ -1,5 +1,9 @@
 export default {
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        salmon: "salmon",
+      },
+    },
   },
 };
