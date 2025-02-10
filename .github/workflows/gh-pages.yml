@@ -1,9 +1,14 @@
-name: Deploy Folder1 to GitHub Pages
+name: Deploy Todo App to GitHub Pages
 
 on:
   push:
     branches:
-      - main # Change this if needed
+      - main # Change if your default branch is different
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
@@ -22,10 +27,10 @@ jobs:
           cd todo-app
           npm install
 
-      - name: Build Project
+      - name: Build the Project
         run: |
           cd todo-app
-          npm run build
+          npm run build  # Ensure this script generates output in `dist` or `build`
 
       - name: Deploy to GitHub Pages
         run: |
