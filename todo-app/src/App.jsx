@@ -3,6 +3,10 @@ import { Form } from "./components/Form/Form";
 import { ToDoItem } from "./components/ToDoItem/ToDoItem";
 
 function App() {
+  const todos = [
+    { name: "Nauka Pythona", done: false, id: 1 },
+    { name: "Wyzwanie AI", done: true, id: 2 },
+  ];
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -14,8 +18,9 @@ function App() {
       </header>
       <Form />
       <ul>
-        <ToDoItem name="Nauka Pythona" done={false} />
-        <ToDoItem name="Wyzwanie AI" done={true} />
+        {todos.map((todo) => (
+          <ToDoItem key={todo.id} name={todo.name} done={todo.done} />
+        ))}
       </ul>
     </div>
   );
