@@ -6,12 +6,12 @@ export function List() {
   return (
     <>
       <button
-        className="text-3xl"
+        className=""
         onClick={() => alert(`Liczba emoji: ${emojis.length}`)}
       >
         Pokaż liczbę emoji!
       </button>
-      <ul>
+      <ul className="flex flex-col gap-[30px]">
         {emojis.map((emoji) => (
           <Item key={emoji} emoji={emoji} />
         ))}
