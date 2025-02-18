@@ -33,3 +33,8 @@ Gdy zobaczysz następujący komunikat to znaczy, że wszystko działa poprawnie 
   ➜  press h to show help
 
 ```
+
+## Oryginalne repo
+
+Repo na bazie kursu: https://www.youtube.com/watch?v=2KXwav64veM
+Oryginalne repo: https://github.com/Jak-zaczac-programowac/rest-api-fetch/tree/main

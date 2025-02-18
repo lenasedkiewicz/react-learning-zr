@@ -22,9 +22,14 @@ fetch("http://localhost:3000/items").then((response) => {
 });
 
 function onDeleteItem(item) {
-  list = list.filter((i) => i !== item);
-
-  renderShoppingList(list);
+  fetch(`http://localhost:3000/items/${item.id}`, { method: "DELETE" }).then(
+    (response) => {
+      if (response.ok) {
+        list = list.filter((i) => i !== item);
+        renderShoppingList(list);
+      }
+    }
+  );
 }
 
 function onAddItem(item) {
