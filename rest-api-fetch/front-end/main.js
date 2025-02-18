@@ -50,8 +50,18 @@ function onAddItem(item) {
 }
 
 function onEditItem(item) {
-  const index = list.lastIndexOf(item);
+  fetch(`http://localhost:3000/items/${item.id}`, {
+    method: "PATCH",
+    body: JSON.stringify(item),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => {
+    if (response.ok) {
+      const index = list.lastIndexOf(item);
 
-  list[index] = item;
-  renderShoppingList(list);
+      list[index] = item;
+      renderShoppingList(list);
+    }
+  });
 }

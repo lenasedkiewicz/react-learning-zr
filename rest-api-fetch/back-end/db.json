@@ -2,23 +2,18 @@
   "items": [
     {
       "id": 1,
-      "completed": false,
-      "content": "Masło"
+      "completed": true,
+      "content": "Masełko x 2"
     },
     {
       "id": 2,
-      "completed": false,
-      "content": "Czipsy"
+      "completed": true,
+      "content": "Czipsy solone"
     },
     {
       "id": 3,
-      "completed": false,
-      "content": "Woda gazowana"
-    },
-    {
-      "content": "Waciki",
-      "completed": false,
-      "id": 4
+      "completed": true,
+      "content": "Woda niegazowana"
     }
   ]
 }
