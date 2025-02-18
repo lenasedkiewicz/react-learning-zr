@@ -33,8 +33,18 @@ function onDeleteItem(item) {
 }
 
 function onAddItem(item) {
-  list = [...list, item];
-  renderShoppingList(list);
+  fetch("http://localhost:3000/items/", {
+    method: "POST",
+    body: JSON.stringify(item),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => {
+    if (response.ok) {
+      list = [...list, item];
+      renderShoppingList(list);
+    }
+  });
 }
 
 function onEditItem(item) {

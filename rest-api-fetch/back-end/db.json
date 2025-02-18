@@ -1,19 +1,24 @@
 {
-    "items": [
-        {
-            "id": 1,
-            "completed": false,
-            "content": "Masło"
-        },
-        {
-            "id": 2,
-            "completed": false,
-            "content": "Czipsy"
-        },
-        {
-            "id": 3,
-            "completed": false,
-            "content": "Woda gazowana"
-        }
-    ]
+  "items": [
+    {
+      "id": 1,
+      "completed": false,
+      "content": "Masło"
+    },
+    {
+      "id": 2,
+      "completed": false,
+      "content": "Czipsy"
+    },
+    {
+      "id": 3,
+      "completed": false,
+      "content": "Woda gazowana"
+    },
+    {
+      "content": "Waciki",
+      "completed": false,
+      "id": 4
+    }
+  ]
 }
