@@ -14,10 +14,12 @@ let list = [];
 
 fetch("http://localhost:3000/items").then((response) => {
   if (response.ok) {
-    console.log(response.body);
+    response.json().then((data) => {
+      list = data;
+      renderShoppingList(list);
+    });
   }
 });
-renderShoppingList(list);
 
 function onDeleteItem(item) {
   list = list.filter((i) => i !== item);
