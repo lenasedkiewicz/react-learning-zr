@@ -41,8 +41,10 @@ function onAddItem(item) {
     },
   }).then((response) => {
     if (response.ok) {
-      list = [...list, item];
-      renderShoppingList(list);
+      response.json().then((data) => {
+        list = [...list, data];
+        renderShoppingList(list);
+      });
     }
   });
 }
