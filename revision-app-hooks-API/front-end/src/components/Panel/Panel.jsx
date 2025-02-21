@@ -4,6 +4,7 @@ import styles from "./Panel.module.css";
 
 export function Panel() {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:3000/words")
       .then((res) => res.json())
@@ -18,7 +19,9 @@ export function Panel() {
 
   console.log("zwykły console log");
 
-  return (
+  return isLoading ? (
+    <p>Ładowanie</p>
+  ) : (
     <>
       <section className={styles.section}>
         <List data={data}></List>
