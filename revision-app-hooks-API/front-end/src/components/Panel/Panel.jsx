@@ -16,7 +16,11 @@ export function Panel() {
   }, []);
 
   function handleFormSubmit(formData) {
-    console.log(formData);
+    fetch("http://localhost:3000/words", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
   }
 
   if (isLoading) {
