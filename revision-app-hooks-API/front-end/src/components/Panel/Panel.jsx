@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { List } from "../List/List";
 import { Form } from "../Form/Form";
+import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import styles from "./Panel.module.css";
 
 export function Panel() {
@@ -29,9 +30,8 @@ export function Panel() {
       });
   }
 
-  // ${id}
   function handleDeleteItem(id) {
-    fetch(`http://localhost:3000/words/100`, { method: "DELETE" })
+    fetch(`http://localhost:3000/words/${id}`, { method: "DELETE" })
       .then((res) => {
         if (res.ok) {
           setData((prevData) => prevData.filter((item) => item.id !== id));
@@ -40,7 +40,10 @@ export function Panel() {
         }
       })
       .catch((err) => {
-        alert(err.message);
+        setError(err.message);
+        setTimeout(() => {
+          setError(null);
+        }, 3000);
       });
   }
 
@@ -50,6 +53,7 @@ export function Panel() {
 
   return (
     <>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
       <section className={styles.section}>
         <Form onFormSubmit={handleFormSubmit} />
         <List data={data} onDeleteItem={handleDeleteItem} />
