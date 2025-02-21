@@ -29,6 +29,24 @@
       "translation": "hamster",
       "category": "noun",
       "id": 5
+    },
+    {
+      "word": "mysz",
+      "translation": "mouse",
+      "category": "noun",
+      "id": 6
+    },
+    {
+      "word": "horse",
+      "translation": "koń",
+      "category": "noun",
+      "id": 7
+    },
+    {
+      "word": "koń",
+      "translation": "horse",
+      "category": "noun",
+      "id": 8
     }
   ]
 }
