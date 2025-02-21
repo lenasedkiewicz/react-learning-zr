@@ -10,18 +10,15 @@ export function Panel() {
       .then((res) => res.json())
       .then((res) => {
         setData(res);
+        setIsLoading(false);
       });
   }, []);
 
-  useEffect(() => {
-    console.log("Pierwszy render");
-  }, []);
+  if (isLoading) {
+    return <p>Ładowanie</p>;
+  }
 
-  console.log("zwykły console log");
-
-  return isLoading ? (
-    <p>Ładowanie</p>
-  ) : (
+  return (
     <>
       <section className={styles.section}>
         <List data={data}></List>
