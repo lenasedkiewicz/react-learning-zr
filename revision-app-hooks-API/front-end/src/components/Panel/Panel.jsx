@@ -28,7 +28,11 @@ export function Panel() {
   }
 
   function handleDeleteItem(id) {
-    console.log(id);
+    fetch(`http://localhost:3000/words/${id}`, { method: "DELETE" }).then(
+      () => {
+        setData((prevData) => prevData.filter((item) => item.id !== id));
+      }
+    );
   }
 
   if (isLoading) {
