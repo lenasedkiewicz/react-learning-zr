@@ -6,6 +6,8 @@ import styles from "./Panel.module.css";
 export function Panel() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     fetch("http://localhost:3000/words")
       .then((res) => res.json())
@@ -27,12 +29,19 @@ export function Panel() {
       });
   }
 
+  // ${id}
   function handleDeleteItem(id) {
-    fetch(`http://localhost:3000/words/${id}`, { method: "DELETE" }).then(
-      () => {
-        setData((prevData) => prevData.filter((item) => item.id !== id));
-      }
-    );
+    fetch(`http://localhost:3000/words/100`, { method: "DELETE" })
+      .then((res) => {
+        if (res.ok) {
+          setData((prevData) => prevData.filter((item) => item.id !== id));
+        } else {
+          throw new Error("Błąd podczas usuwania!");
+        }
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   }
 
   if (isLoading) {
