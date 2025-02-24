@@ -49,7 +49,8 @@ export function Panel() {
   }
 
   function handleFilterClick(category) {
-    fetch(`http://localhost:3000/words?category=${category}`)
+    const params = category ? `?category=${category}` : "";
+    fetch(`http://localhost:3000/words${params}`)
       .then((res) => res.json())
       .then((res) => {
         setData(res);
@@ -66,7 +67,9 @@ export function Panel() {
       <section className={styles.section}>
         <Form onFormSubmit={handleFormSubmit} />
         <div className={styles.filters}>
-          <FilterButton>Wszystkie</FilterButton>
+          <FilterButton onClick={() => handleFilterClick(null)}>
+            Wszystkie
+          </FilterButton>
           <FilterButton onClick={() => handleFilterClick("noun")}>
             Rzeczowniki
           </FilterButton>
