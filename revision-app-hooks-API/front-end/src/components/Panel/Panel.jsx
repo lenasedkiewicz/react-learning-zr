@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { List } from "../List/List";
 import { Form } from "../Form/Form";
 import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
+import { FilterButton } from "../FilterButton/FilterButton";
 import styles from "./Panel.module.css";
 
 export function Panel() {
@@ -47,6 +48,14 @@ export function Panel() {
       });
   }
 
+  function handleFilterClick(category) {
+    fetch(`http://localhost:3000/words?category=${category}`)
+      .then((res) => res.json())
+      .then((res) => {
+        setData(res);
+      });
+  }
+
   if (isLoading) {
     return <p>Ładowanie</p>;
   }
@@ -56,6 +65,15 @@ export function Panel() {
       {error && <ErrorMessage>{error}</ErrorMessage>}
       <section className={styles.section}>
         <Form onFormSubmit={handleFormSubmit} />
+        <div className={styles.filters}>
+          <FilterButton>Wszystkie</FilterButton>
+          <FilterButton onClick={() => handleFilterClick("noun")}>
+            Rzeczowniki
+          </FilterButton>
+          <FilterButton onClick={() => handleFilterClick("verb")}>
+            Czasowniki
+          </FilterButton>
+        </div>
         <List data={data} onDeleteItem={handleDeleteItem} />
       </section>
     </>
