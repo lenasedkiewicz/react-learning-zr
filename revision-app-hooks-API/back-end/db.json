@@ -41,6 +41,18 @@
       "translation": "horse",
       "category": "noun",
       "id": 8
+    },
+    {
+      "word": "prowadzić samochód",
+      "translation": "drive",
+      "category": "verb",
+      "id": 9
+    },
+    {
+      "word": "widzieć",
+      "translation": "see",
+      "category": "verb",
+      "id": 10
     }
   ]
 }

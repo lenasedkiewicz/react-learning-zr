@@ -5,6 +5,8 @@ import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import { FilterButton } from "../FilterButton/FilterButton";
 import styles from "./Panel.module.css";
 
+const url = "http://localhost:3000/words";
+
 export function Panel() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +15,7 @@ export function Panel() {
 
   useEffect(() => {
     const params = selectedCategory ? `?category=${selectedCategory}` : "";
-    fetch(`http://localhost:3000/words${params}`)
+    fetch(`${url}${params}`)
       .then((res) => res.json())
       .then((res) => {
         setData(res);
@@ -22,19 +24,21 @@ export function Panel() {
   }, [selectedCategory]);
 
   function handleFormSubmit(formData) {
-    fetch("http://localhost:3000/words", {
+    fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
       .then((res) => {
-        setData((prevData) => [...prevData, res]);
+        if (!selectedCategory || selectedCategory === res.category) {
+          setData((prevData) => [...prevData, res]);
+        }
       });
   }
 
   function handleDeleteItem(id) {
-    fetch(`http://localhost:3000/words/${id}`, { method: "DELETE" })
+    fetch(`${url}${id}`, { method: "DELETE" })
       .then((res) => {
         if (res.ok) {
           setData((prevData) => prevData.filter((item) => item.id !== id));
