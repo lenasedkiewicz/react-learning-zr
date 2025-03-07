@@ -5,6 +5,7 @@ import { AddNewButton } from "../add-new-button/AddNewButton";
 import { TopBar } from "../top-bar/TopBar";
 import { ShortNote } from "../short-note/ShortNote";
 import { Note } from "../note/Note";
+import { useParams } from "react-router-dom";
 
 const NotesContainer = ({ children }) => (
   <div className={styles["notes-container"]}>{children}</div>
@@ -56,7 +57,8 @@ const NotesList = () => {
     },
   ]);
 
-  const folderId = 1;
+  const { folderId } = useParams();
+  console.log(typeof folderId);
 
   return (
     <NotesContainer>
@@ -68,7 +70,7 @@ const NotesList = () => {
         </TopBar>
 
         {notes
-          .filter((note) => note.folderId === folderId)
+          .filter((note) => note.folderId === Number(folderId))
           .map((note, idx) => (
             <ShortNote role="listitem" key={idx} note={note}></ShortNote>
           ))}

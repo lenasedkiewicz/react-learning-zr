@@ -8,7 +8,7 @@ const router = createBrowserRouter([
   { element: <App />, path: "/" },
   {
     element: <NotesList />,
-    path: "/notes",
+    path: "/notes/:folderId",
   },
 ]);
 
