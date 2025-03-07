@@ -5,10 +5,15 @@ import { App } from "./App";
 import NotesList from "./components/notes-list/NotesList";
 
 const router = createBrowserRouter([
-  { element: <App />, path: "/" },
   {
-    element: <NotesList />,
-    path: "/notes/:folderId",
+    element: <App />,
+    path: "/",
+    children: [
+      {
+        element: <NotesList />,
+        path: "/notes/:folderId",
+      },
+    ],
   },
 ]);
 
